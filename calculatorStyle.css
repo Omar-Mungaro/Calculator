@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: green;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+
+.title-container {
+    color: white;
+    position: relative;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    margin: 10px;
+    left: 30%; 
+}
+
+.display {
+    margin: 8px auto;
+    margin-bottom: auto;
+}
+
+.result-ac-del-conatiner {
+    margin: auto;
+    margin-bottom: 0;
+}
+
+.calculator {
+    display: grid;
+    position: absolute;
+    width: 300px;
+    height: 495px;
+    z-index: 1;
+    box-sizing: border-box;
+    box-shadow: 1px 1px inset red;
+    top: 650px;
+    left: 400px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 1);
+    border-top: solid red 1px;
+    border-left: solid red 5px;
+    border-right: solid red 5px;
+    border-radius: 5%;
+    padding: auto;
+}
+
+.more {
+    position: absolute;
+    width: 275px;
+    z-index: 0;
+    box-sizing: border-box;
+    box-shadow: 1px 1px inset red;
+    top: 750px;
+    left: 400px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .9);
+    border-top: none;
+    border-bottom: solid red 1px;
+    border-left: solid red 1px;
+    border-right: solid red 1px;
+    border-radius: 0 0 5pc 5pc;
+    padding: auto;
+    transition: ease-out .8s;
+    display: grid;
+    justify-items: center;
+}
+
+.moreFunction {
+    position: absolute;
+    display: grid;
+    transition: all .8s;
+    top: 945px;
+    left: 400px;
+}
+
+#num {
+    font-size: xx-large;
+    padding: 10px 10px;
+    width: 235px;
+    height: 50px;
+    text-align: right;
+    box-shadow: 0 5px 15px inset;
+    background: gray;
+    border-style: solid inset;
+    border-radius: .5pc;
+    margin: 0 5px;
+}
+
+#n {
+    display: none;
+}
+
+#result {
+    width: 105px;
+    height: 25px;
+    text-align: right;
+    padding: 4px;
+    height: 20px;
+    font-weight: bolder;
+    background: gray;
+    border-radius: .5pc;
+}
+
+button {
+    color: white;
+    font-weight: bold;
+    width: 54px;
+    height: 45px;
+    border: none;
+    border-radius: .5pc;
+    box-shadow: 1px 2px 5px outset white;
+    background: linear-gradient(-180deg, white, black);
+    margin: 2px;
+}
+
+button:active {
+    box-shadow: 1px -1px -2px inset red;
+    box-shadow: 1px 1px 2px inset red;
+    color: red;
+}
+
+.keyPads {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding:  10px;
+    margin: 8px auto;
+}
+
+.func-keys {
+    width: 50px;
+    background: linear-gradient(-180deg, green, black);
+}
+
+.opr-keys {
+    background: linear-gradient(-180deg, blue, black);
+}
+
+.menu {
+    position: absolute;
+    left: 46%;
+    margin-top: 10px;
+}
+
+.bar {
+    position: relative;
+    background: white;
+    width: 20px;
+    height: 2px;
+    margin: 2px;
+    transition: all .8s;
+}
+
+.expandFunction {
+    margin: 10px auto;
+    position: absolute;
+    right: 45%;
+    border-style: solid white;
+    
+}
+
+.expandFunction::nth-child(2) {
+ display: block;
+ transition: all .8s;
+}
+
+.expandFunction:hover :nth-child(2) {
+  background: red;
+  opacity: 0;
+}
+
+.expandFunction:hover :nth-child(1) {
+    transform: rotateZ(45deg) translate(1px, 5px);
+    transition: all .8s;
+    background: red;
+    display: block;
+    
+}
+
+.expandFunction:hover :nth-child(3) {
+    transform: rotateZ(-45deg) translate(1px, -5px);;
+    transition: all .8s;
+    display: block;
+    background: red;
+    
+}
+
+#btnAC, #btnDEL {
+    background: linear-gradient(-180deg, red, black);
+}

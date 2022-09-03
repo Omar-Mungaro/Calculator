@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="calculatorStyle.css">
+		<style type="text/css" src="calculatorStyle.css"></style>
+	</head>
+	<body>
+		<div class="calculator">
+			<div class="title-container">
+				<label id="title">SIMPLE CALCULATOR</label>
+			</div>
+			<div class="display">
+				<div class="num-container">
+					<input type="text" id="num" placeholder="0" disabled>
+				</div>
+				<div class="n-container">
+					<input type="text" id="n" placeholder="0" disabled>
+				</div>
+			</div>
+			<div class="result-ac-del-conatiner">
+				<input type="text" id="result" placeholder="0" disabled>
+				<button id="btnAC" onclick="clearAll()">AC</button>
+				<button id="btnDEL" onclick="deleteDigit()">DEL</button>
+			</div>
+
+			<div class="keyPads">
+				<div class="keys">
+					<button id="btn1" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">1</button>
+					<button id="btn2" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">2</button>
+					<button id="btn3" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">3</button>
+					<button id="btnPlus" class="opr-keys" onclick="n.value+='+'; num.value+=innerText; result.value=eval(n.value);">+</button>
+				</div>
+
+				<div class="keys">
+					<button id="btn4" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">4</button>
+					<button id="btn5" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">5</button>
+					<button id="btn6" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">6</button>
+					<button id="btnSub" class="opr-keys" onclick="subStract();">-</button>
+				</div>
+
+				<div class="keys">
+					<button id="btn7" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">7</button>
+					<button id="btn8" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">8</button>
+					<button id="btn9" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">9</button>
+					<button id="btnMul" class="opr-keys" onclick="n.value+='*'; num.value+=innerText; result.value=eval(n.value);">&times;</button>
+				</div>
+
+				<div class="keys">
+					<button id="btnDec" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">.</button>
+					<button id="btn0" class="num-keys" onclick="n.value+=innerText; num.value+=innerText; result.value=eval(n.value);">0</button>
+					<button id="btnEq" class="opr-keys" onclick="n.value=eval(n.value); num.value=eval(n.value); result.value=eval(n.value);">&equals;</button>
+					<button id="btnDiv" class="opr-keys" onclick="n.value+='/'; num.value+=innerText; result.value=eval(n.value);">&divide</button>
+				</div>
+				<div class="keys"></div>
+
+				<div class="expandFunction" onclick="more.classList.toggle('moreFunction')">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+				</div>
+
+			</div>
+			
+		</div>
+
+		<div class="more" id="more">
+			<div class="keys">
+				<button id="btnSQ" class="func-keys" onclick="findSquareX()">X<sup>2</sup></button>
+				<button id="btnSQRT" class="func-keys" onclick="findSquarerootX()">&radic;x</button>
+				<button id="btnPOW" class="func-keys" onclick="findXraisedtoPowerofY()">X<sup>y</sup></button>
+				<button id="btnNRT" class="func-keys" onclick="n.value+='*'; num.value+=innerText; result.value=eval(n.value);"><sup>y</sup>&radic;x</button>
+			</div>
+			<div class="keys">
+			  <button class="func-keys" onclick="findSineX()">sin(x)</button>
+			</div>
+		</div>
+
+		<link rel="script" href="calculatorStyle.js">
+		<script type="text/javascript">
+		
+		const x = n.value;
+		
+			function deleteDigit () {
+    			
+				if (n.value === null) {
+					result.value = null;
+					return;
+				}
+				else {
+
+					n.value = n.value.substring(0, n.value.length - 1);
+					num.value = num.value.substring(0, num.value.length-1);
+					result.value = eval(n.value);
+				}
+				
+			}
+
+			function clearAll() {
+				n.value = null;
+    		num.value = null;
+				result.value = null;
+			}
+			
+			function findSineX() {
+			  let x = n.value;
+			  // checking if the value of x is between 1 and -1, if not do nothing
+			  if (x > 1 || x < -1) {
+			    return;
+			  }
+			  // finding the sine of x and displayin the result
+			  n.value = Math.sin(x);
+			  num.value = eval(n.value);
+			  result.value = eval(n.value);
+			}
+			
+			function findCosineX() {
+			  
+			}
+			
+			function findSquareX(){
+			  if (n.value === null) {
+			    
+			  return;
+
+			  }
+			  
+			  n.value=eval(n.value);
+			  n.value*=n.value;
+			  num.value=n.value;
+			  result.value=n.value;
+			  return;
+	
+			}
+			
+			function findSquarerootX() {
+			  n.value=Math.sqrt(eval(n.value));
+			  num.value=n.value;
+			  result.value=n.value;
+			  return;
+			  
+			}
+			
+			function subStract(){
+			  n.value+='-'; 
+			  num.value+='-';
+			  result.value=eval(n.value);
+			}
+
+		</script>
+	</body>
+</html>
